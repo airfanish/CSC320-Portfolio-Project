@@ -1,0 +1,91 @@
+ADD HOME PSEUDOCODE: 
+
+START 
+
+    // Define the mathod and parameters 
+
+    START	
+	IF model is empty OR address is empty OR zipcode is not 5 digits
+		RETURN "Invalid input"
+	ELSE
+		add new Home(model, address, zipcode) to homes list
+		RETURN "Home successfully added to inventory."
+
+
+Add a Home: 
+
+public String updateHome(String homeModel, String homeAddress, int zipCode) {
+    try {
+        for (Home home : homes) {
+            if (home.getHomeModel().equals(homeModel) && home.getZipCode() == zipCode) {
+                home.setHomeAddress(homeAddress);
+                return "Home successfully updated.";
+            }
+        }
+        return "Home not found in inventory.";
+    } catch (Exception e) {
+        return "Error updating home: " + e.getMessage();
+    }
+}
+
+
+REMOVE HOME PSEUDOCODE
+
+START
+	FOR each home in homes
+		IF model matches AND address matches AND zipcode matches
+			remove home
+			RETURN "Home successfully removed from inventory."
+		END FOR
+		RETURN "Home not found in inventory."
+		END
+
+REMOVE A HOME:
+
+public String removeHome(String homeModel, String homeAddress, int zipCode) {
+    try {
+        for (int i = 0; i < homes.size(); i++) {
+            Home home = homes.get(i);
+
+            if (home.getHomeModel().equals(homeModel) &&
+                home.getHomeAddress().equals(homeAddress) &&
+                home.getZipCode() == zipCode) {
+
+                homes.remove(i);
+                return "Home successfully removed from inventory.";
+            }
+        }
+        return "Home not found in inventory.";
+    } catch (Exception e) {
+        return "Error removing home: " + e.getMessage();
+    }
+}
+
+
+UPDATE HOME PSEUDOCODE:
+
+START
+	FOR each home in homes
+		IF model matches AND zipcode matches
+			set address to new address
+			RETURN "Home successfully updated."
+		END FOR
+		RETURN "Home not found in inventory."
+		END
+
+UPDATE HOME:
+
+public String updateHome(String homeModel, String homeAddress, int zipCode) {
+    try {
+        for (Home home : homes) {
+            if (home.getHomeModel().equals(homeModel) && home.getZipCode() == zipCode) {
+                home.setHomeAddress(homeAddress);
+                return "Home successfully updated.";
+            }
+        }
+        return "Home not found in inventory.";
+    } catch (Exception e) {
+        return "Error updating home: " + e.getMessage();
+    }
+}
+
